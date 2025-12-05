@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euclidean Algorithm</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='euclidean.css') }}">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+    <a href="{{ url_for('discrete_mathematics') }}" class="nav-link">Discrete Mathematics</a>
+    <a href="{{ url_for('about') }}" class="nav-link">About</a>
+    <div class="nav-btn">
+      <a href="/premium" id="premium" class="btn-log">💎 Get Premium</a>
+      <a href="/logout" id="logoutLink" class="btn-log">Logout</a>
+    </div>
+  </nav>
+
+  <h1>Euclidean Algorithm</h1>
+
+  <div class="content-wrapper">
+    <div class="container">
+      <h2>Calculator</h2>
+
+      <!-- Display Result -->
+      <input type="text" id="display" readonly placeholder="Result will appear here">
+
+      <!-- Input Numbers -->
+      <label for="num1">Number 1</label>
+      <input type="text" id="num1" placeholder="Enter first number" required>
+
+      <label for="num2">Number 2</label>
+      <input type="text" id="num2" placeholder="Enter second number" required>
+
+      <button onclick="euclidean()" id="euclideanBtn">Calculate</button>
+    </div>
+
+    <!-- Scrollable Outcome Container -->
+    <div class="outcomeContainer">
+      <h1>Solution:</h1>
+      <p id="outcome">Enter values and click Calculate to see the solution.</p>
+
+      <h1>Explanation:</h1>
+      <p id="explanation">Explanation will appear here.</p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='euclidean.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discrete Mathematics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+    <a href="{{ url_for('discrete_mathematics') }}" class="nav-link">Discrete Mathematics</a>
+    <a href="{{ url_for('about') }}" class="nav-link">About</a>
+    <div class="nav-btn">
+      <a href="/premium" id="premium" class="btn-log">💎 Get Premium</a>
+      <a href="/logout" id="logoutLink" class="btn-log">Logout</a>
+    </div>
+  </nav>
+
+  <h1 id="discrete">Discrete Mathematics</h1>
+
+  <div class="content-wrapper">
+    <!-- Cryptography Section -->
+    <div class="cryptography">
+      <a href="{{ url_for('caesar') }}" class="cryptography_link">Caesar Cipher</a>
+      <a href="{{ url_for('deffie') }}" class="cryptography_link">Deffie-Hellman Key Exchange</a>
+    </div>
+
+    <!-- Number Theory Section -->
+    <div class="number-theory">
+      <a href="{{ url_for('fermats') }}" class="number-theory-link">Fermat's Little Theorem</a>
+      <a href="{{ url_for('primitive') }}" class="number-theory-link">Primitive Roots</a>
+      <a href="{{ url_for('linear') }}" class="number-theory-link">Linear Congruence</a>
+      <a href="{{ url_for('euclidean') }}" class="number-theory-link">Euclidean</a>
+    </div>
+
+    <!-- Number System Section -->
+    <div class="number-system">
+      <a href="{{ url_for('arithmetic') }}" class="number-system-link">Arithmetic</a>
+      <a href="{{ url_for('conversion') }}" class="number-system-link">Conversion</a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='sign.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Market</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dark-side.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="{{ url_for('dark_side') }}" class="nav-link {% if current_page == 'home' %}active{% endif %}">Home</a>
+        <a href="{{ url_for('marketplace') }}" class="nav-link {% if current_page == 'marketplace' %}active{% endif %}">Marketplace</a>
+        <a href="#" class="nav-link">Account</a>
+    </nav>
+
+    <h2 class="welcome">Welcome to the Black Market</h2>
+    <h3 class="discover">Discover the most sought-after items in the market</h3>
+
+    <a href="{{ url_for('marketplace') }}" class="marketBtn">Enter Marketplace</a>
+
+    <h1 class="hot">Hot Picks</h1>
+    <div class="featured-card" id="featured"></div>
+
+</body>
+
+<script>
+    const items = [
+        { id: 1, image: "{{ url_for('static', filename='Smith_Wesson_Model_29_Revolver.jpg') }}", name: "Smith & Wesson Model 29 Revolver", price: 1500, type: "pistol" },
+        { id: 2, image: "{{ url_for('static', filename='FN_M249_SAW_Squad_Automatic_Weapon.jpg') }}", name: "FN M249 SAW", price: 3500, type: "smg" },
+        { id: 3, image: "{{ url_for('static', filename='Heckler_Koch_UMP_Universal_Machine_Pistol.jpeg') }}", name: "Heckler & Koch UMP", price: 8500, type: "smg" },
+        { id: 4, image: "{{ url_for('static', filename='Barrett_M82.jpg') }}", name: "Barrett M82", price: 15000, type: "long_range_unit" },
+        { id: 5, image: "{{ url_for('static', filename='RPG-7.jpg') }}", name: "RPG-7", price: 4000, type: "launcher_unit" }
+    ];
+
+    const container = document.getElementById("featured");
+    container.innerHTML = "";
+
+    items.forEach(item => {
+        const url = "{{ url_for('purchaseItem') }}" + "?id=" + item.id;
+
+        container.innerHTML += `
+            <div class="product-card" data-type="${item.type}">
+                <a href="${url}">
+                    <img src="${item.image}" alt="${item.name}">
+                </a>
+                <h3>${item.name}</h3>
+                <span>$${item.price.toLocaleString()}</span>
+            </div>
+        `;
+    });
+</script>
+
+</html>

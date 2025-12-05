@@ -1,0 +1,400 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #EAF3FB;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 70px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #4DB6AC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 600;
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+.nav-btn {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-log {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-log:hover {
+  background-color: white;
+  color: #4DB6AC;
+}
+
+/* Page heading */
+#discrete {
+  font-size: 30px;
+  color: white;
+  background-color: #4DB6AC;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  margin: 20px auto 40px;
+  text-align: center;
+  max-width: 350px;
+}
+
+/* Main content container */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Container styles */
+.cryptography, .number-theory, .number-system {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px 30px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.cryptography {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.number-theory {
+  width: 350px;
+  flex-shrink: 0;
+}
+
+.number-system {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+/* Section headings */
+.cryptography::before {
+  content: "Cryptography";
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4DB6AC;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.number-theory::before {
+  content: "Number Theory";
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4DB6AC;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.number-system::before {
+  content: "Number System";
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4DB6AC;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Link styles */
+.number-theory-link, .cryptography_link, .number-system-link {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  color: #333;
+  background-color: #B2DFDB;
+  text-decoration: none;
+  margin: 12px 0;
+  padding: 12px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.number-theory-link:hover, .cryptography_link:hover, .number-system-link:hover {
+  background-color: #4DB6AC;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cryptography, .number-theory, .number-system {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  #discrete {
+    font-size: 24px;
+  }
+}
+
+/* Custom scrollbar */
+.cryptography::-webkit-scrollbar,
+.number-theory::-webkit-scrollbar,
+.number-system::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cryptography::-webkit-scrollbar-track,
+.number-theory::-webkit-scrollbar-track,
+.number-system::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.cryptography::-webkit-scrollbar-thumb,
+.number-theory::-webkit-scrollbar-thumb,
+.number-system::-webkit-scrollbar-thumb {
+  background: #4DB6AC;
+  border-radius: 10px;
+}
+
+.cryptography::-webkit-scrollbar-thumb:hover,
+.number-theory::-webkit-scrollbar-thumb:hover,
+.number-system::-webkit-scrollbar-thumb:hover {
+  background: #26A69A;
+}
+
+/* ====== Arithmetic Calculator Page Styles ====== */
+html, body {
+  height: 100%;
+}
+
+#myH1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 32px;
+  text-align: center;
+  color: #4DB6AC;
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+/* Container for calculator */
+.container {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #B2DFDB;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #4DB6AC;
+  border-radius: 6px;
+}
+
+.container h2 {
+  text-align: center;
+  color: #4DB6AC;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+/* Form Inputs */
+label {
+  display: block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus {
+  outline: none;
+  border-color: #4DB6AC;
+  box-shadow: 0 0 8px rgba(77,182,172,0.3);
+}
+
+/* Button */
+button {
+  background-color: #4DB6AC;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: #26A69A;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Outcome Container */
+.outcomeContainer {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid #B2DFDB;
+  overflow-y: auto;
+}
+
+.outcomeContainer h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  color: #4DB6AC;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#outcome, #explanation {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 15px;
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  border: 1px solid #E0E0E0;
+  min-height: 100px;
+  margin: 5px 0;
+  text-align: left;
+}
+
+/* Result & Error Boxes */
+.result-box, .error-box {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.result-box {
+  background-color: #E8F5E9;
+  border: 2px solid #4CAF50;
+  color: #2E7D32;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.error-box {
+  background-color: #FFEBEE;
+  border: 2px solid #F44336;
+  color: #C62828;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .container, .outcomeContainer {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  #myH1 {
+    font-size: 24px;
+  }
+
+  .container, .outcomeContainer {
+    padding: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+  }
+}

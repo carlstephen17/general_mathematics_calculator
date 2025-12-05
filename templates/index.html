@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>General Mathematics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script>
+    const loggedInUser = "{{ username }}";
+    const loggedOut = "{{ logged_out }}";
+  </script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+    <a href="{{ url_for('about') }}" class="nav-link">About</a>
+    <div class="nav-btn">
+      <a href="/premium" id="premium" class="btn-log">💎 Get Premium</a>
+      <a href="/logout" id="logoutLink" class="btn-log">Logout</a>
+    </div>
+  </nav>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalTitle">Sign In</h2>
+      <form id="modalForm">
+        <label for="username">Username:</label>
+        <input type="text" id="usernameInput" name="username" placeholder="Enter your username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="passwordInput" name="password" placeholder="Enter your password" required>
+
+        <button type="submit" id="submitBtn">Login</button>
+
+        <div class="account-section">
+          <p id="accountText">Don't have an account?</p>
+          <button type="button" class="sign" id="toggleSignBtn">Sign up</button>
+        </div>
+
+        <p id="or">or</p>
+        <div class="social-media-container">
+          <button type="button" class="social-media-btn">
+            <i class="fa-brands fa-google"></i> Continue with Google
+          </button>
+          <button type="button" class="social-media-btn">
+            <i class="fa-brands fa-github"></i> Continue with Github
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <h2 id="general">General Mathematics</h2>
+  <div class="branches-link">
+    <a href="{{ url_for('pure_mathematics') }}" class="branches">Pure Mathematics</a>
+    <a href="{{ url_for('discrete_mathematics') }}" class="branches">Discrete Mathematics</a>
+    <a href="#" class="branches">Pre Calculus</a>
+    <a href="#" class="branches">Basic Calculus</a>
+    <a href="#" class="branches">Geometry</a>
+    <a href="#" class="branches">Trigonometry</a>
+  </div>
+
+  <script src="{{ url_for('static', filename='database.js') }}?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fermat's Little Theorem</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='fermats.css') }}">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+    <a href="{{ url_for('discrete_mathematics') }}" class="nav-link">Discrete Mathematics</a>
+
+    <a href="{{ url_for('about') }}" class="nav-link">About</a>
+    <div class="nav-btn">
+      <a href="/premium" id="premium" class="btn-log">💎 Get Premium</a>
+      <a href="/logout" id="logoutLink" class="btn-log">Logout</a>
+    </div>
+  </nav>
+
+  <h1 id="myH1">Fermat's Little Theorem</h1>
+
+  <div class="content-wrapper">
+    <div class="container">
+      <h2>Calculator</h2>
+      <input type="text" id="display" readonly placeholder="Result will appear here">
+
+      <label for="base">Base</label>
+      <input type="text" id="base" placeholder="Enter base value" required>
+
+      <label for="exponent">Exponent</label>
+      <input type="text" id="exponent" placeholder="Enter exponent" required>
+
+      <label for="modulo">Modulo</label>
+      <input type="text" id="modulo" placeholder="Enter modulo value" required>
+
+      <button onclick="fermats()" id="fermatsBtn">Calculate</button>
+    </div>
+
+    <div class="outcomeContainer">
+      <h1>Solution:</h1>
+      <p id="outcome">Enter values and click Calculate to see the solution.</p>
+      <h1 class="expH1">Explanation:</h1>
+      <p id="explanation">Enter values and click Calculate to see the explanation.</p>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='fermats.js') }}"></script>
+</body>
+
+</html>

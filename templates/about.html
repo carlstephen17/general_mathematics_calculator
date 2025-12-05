@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Discrete Mathematics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('about') }}" class="nav-link">About</a>
+        <div class="nav-btn">
+            <a href="/premium" id="premium" class="btn-log">💎 Get Premium</a>
+            <a href="/logout" id="logoutLink" class="btn-log">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-section">
+            <h1 id="discrete">About Discrete Mathematics</h1>
+            <div class="decorative-line"></div>
+        </div>
+
+        <div class="content-section">
+            <div class="definition-card">
+                <div class="icon">📐</div>
+                <h2>What is Discrete Mathematics?</h2>
+                <p class="definition">
+                    Discrete mathematics is a branch of mathematics that focuses on objects and
+                    structures that are <strong>countable, distinct, and separable</strong>.
+                    It contrasts with continuous mathematics, which deals with continuously varying values like
+                    those found in calculus.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔢</div>
+                    <h3>Countable Sets</h3>
+                    <p>Works with finite and discrete structures that can be enumerated</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Graph Theory</h3>
+                    <p>Studies relationships and connections between objects</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Computer Science</h3>
+                    <p>Essential foundation for algorithms and data structures</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧮</div>
+                    <h3>Logic & Proofs</h3>
+                    <p>Mathematical reasoning and formal verification</p>
+                </div>
+            </div>
+
+            <div class="applications-section">
+                <h2>Key Applications</h2>
+                <div class="applications-list">
+                    <div class="application-item">
+                        <span class="bullet">✓</span>
+                        <span>Cryptography and Security</span>
+                    </div>
+                    <div class="application-item">
+                        <span class="bullet">✓</span>
+                        <span>Network Design and Optimization</span>
+                    </div>
+                    <div class="application-item">
+                        <span class="bullet">✓</span>
+                        <span>Database Theory</span>
+                    </div>
+                    <div class="application-item">
+                        <span class="bullet">✓</span>
+                        <span>Artificial Intelligence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p style="display: inline-block; font-size: 24px; font-weight: bold; color: #000000; padding: 10px 20px;">
+            Copyright <span style="display: inline-block; font-size: 24px; color: #000000; 
+                border-radius: 10px;">©</span>
+            <span id="year"></span> Carl Stephen E. Bencalo. All Rights Reserved.
+        </p>
+    </div>
+
+</body>
+
+<script>
+    const year = new Date().getFullYear();
+    document.getElementById('year').textContent = year;
+</script>
+
+</html>

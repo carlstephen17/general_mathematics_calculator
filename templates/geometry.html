@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discrete Mathematics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='geometry.css') }}">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+    <a href="{{ url_for('about') }}" class="nav-link">About</a>
+  </nav>
+
+\  <nav class="nav-btn">
+    <button id="signIn" class="btn-log">Sign in</button>
+    <button id="signUp" class="btn-log">Sign up</button>
+  </nav>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle">Sign In</h2>
+      
+      <form id="modalForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit" id="submitBtn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <h1 id="discrete">Pure Mathematics</h1>
+
+  <div class="content-wrapper">
+    <!-- Cryptography Section -->
+    <div class="geometry">
+      <a href="{{ url_for('geometry') }}" class="geometry-link">Caesar Cipher</a>
+    </div>
+
+    
+
+  <script src="{{ url_for('static', filename='sign.js') }}"></script>
+
+</body>
+</html>

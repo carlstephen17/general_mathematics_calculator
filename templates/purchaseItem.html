@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='purchaseItem.css') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('dark_side') }}" class="nav-link {% if current_page == 'home' %}active{% endif %}">Home</a>
+        <a href="{{ url_for('marketplace') }}"
+            class="nav-link {% if current_page == 'marketplace' %}active{% endif %}">Marketplace</a>
+        <a href="#" class="nav-link">Account</a>
+    </nav>
+
+    <div class="purchaseContainer">
+        <img id="image" height="300" width="300" alt="Product Image">
+        <div class="details">
+            <h1 id="name"></h1>
+            <p id="description"></p>
+            <span id="price"></span>
+            <button class="purchase">Purchase</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    const items = [
+        {
+            id: 1, image: "{{ url_for('static', filename='Smith_Wesson_Model_29_Revolver.jpg') }}",
+            name: "Smith & Wesson Model 29 Revolver",
+            description: "A powerful .44 Magnum revolver, celebrated for its accuracy and classic design. Ideal for collectors and enthusiasts.",
+            price: 1500
+        },
+        {
+            id: 2, image: "{{ url_for('static', filename='FN_M249_SAW_Squad_Automatic_Weapon.jpg') }}",
+            name: "FN M249 SAW",
+            description: "A belt-fed light machine gun, designed for sustained fire support. Reliable and rugged for tactical operations.",
+            price: 3500
+        },
+        {
+            id: 3, image: "{{ url_for('static', filename='Heckler_Koch_UMP_Universal_Machine_Pistol.jpeg') }}",
+            name: "Heckler & Koch UMP",
+            description: "A compact submachine gun with excellent control and accuracy. Perfect for close-quarters combat.",
+            price: 8500
+        },
+        {
+            id: 4, image: "{{ url_for('static', filename='Barrett_M82.jpg') }}",
+            name: "Barrett M82",
+            description: "A long-range, semi-automatic sniper rifle. Known for its power and ability to engage distant targets with precision.",
+            price: 15000
+        },
+        {
+            id: 5, image: "{{ url_for('static', filename='RPG-7.jpg') }}",
+            name: "RPG-7",
+            description: "A portable rocket launcher, effective against armored targets. Durable and widely recognized in military applications.",
+            price: 4000
+        }
+    ];
+
+
+    const id = Number(new URLSearchParams(window.location.search).get("id"));
+
+    const product = items.find(i => i.id === id);
+
+    if (product) {
+        document.getElementById("image").src = product.image;
+        document.getElementById("name").textContent = product.name;
+        document.getElementById("description").textContent = product.description;
+        document.getElementById("price").textContent = "$" + product.price.toLocaleString();
+    } else {
+        document.getElementById("name").textContent = "Product not found";
+        document.getElementById("price").textContent = "";
+        document.getElementById("image").style.display = "none";
+    }
+</script>
+
+</html>

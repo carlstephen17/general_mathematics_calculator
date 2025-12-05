@@ -1,0 +1,231 @@
+:root {
+    --primary-color: #4DB6AC;
+    --primary-dark: #26A69A;
+    --background-light: #EAF3FB;
+    --text-color: #333;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-deep: rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 70px;
+    font-size: 16.5px; 
+    color: var(--text-color);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 12px var(--shadow-deep); 
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+.nav-btn {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-log {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px; 
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-log:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.btn-premium {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid white;
+}
+
+.btn-premium:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.container {
+    max-width: 450px; 
+    width: 90%; 
+    
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    height: 500px;
+    overflow-y: auto;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+#unlock {
+    font-size: 24px; 
+    color: white;
+    background-color: var(--primary-color);
+    padding: 12px 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px var(--shadow-light);
+    margin: 0 auto 30px; 
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+label {
+    text-align: left;
+    width: 100%;
+    margin: 10px 0 5px; 
+    font-weight: 600;
+    font-size: 15px;
+    padding-left: 5%; 
+}
+
+
+.input {
+    display: block;
+    width: 100%; 
+    padding: 12px 15px;
+    margin: 5px 0 15px; 
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd; 
+    text-align: left; 
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    border-color: var(--primary-color); 
+    box-shadow: 0 0 0 3px rgba(77, 182, 172, 0.3); 
+    outline: none; 
+}
+
+#paymentBtn {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    background-color: var(--primary-color);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px; 
+    padding: 15px 15px;
+    border: none;
+}
+
+#paymentBtn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#paymentBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+}
+
+/* --- Scrollbar --- */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* --- Media Queries (Responsiveness) --- */
+@media (max-width: 500px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    .navbar {
+        padding: 15px 10px;
+        justify-content: flex-start;
+    }
+    
+    .nav-links-center {
+        display: none; /* Hide main links on very small screens */
+    }
+
+    .nav-btn {
+        position: static;
+        margin-left: auto;
+        gap: 10px;
+    }
+    
+    .btn-log {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .container {
+        margin: 30px auto;
+        padding: 20px 25px; /* Reduced container padding */
+        width: 95%; 
+    }
+    
+    #unlock {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='premium.css') }}">
+
+    <script>
+        const loggedInUser = "{{ username }}";
+        const loggedOut = "{{ logged_out }}";
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('about') }}" class="nav-link">About</a>
+        <div class="nav-btn">
+            <a href="/premium" id="premium" class="btn-log">💎 Get Premium</a>
+            <a href="/logout" id="logoutLink" class="btn-log">Logout</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="freeContainer">
+            <p class="free">Free Tier</p>
+            <p class="freePayment">₱0/month</p>
+            <p class="free-features"><span>✅</span> Limited Calculations</p>
+            <p class="free-features"><span>✅</span> Ads Displayed</p>
+            <p class="free-features"><span>✅</span> Step-by-Step Solutions</p>
+            <p class="free-features"><span>✅</span> Step-by-step Explanations</p>
+            <p class="free-features"><span>✅</span> All Topics Covered</p>
+            <p class="premium-features"><span>✅</span> Limited, Manual History Save</p>
+            <p class="free-features"><span>✅</span> Watermarked Export</p>
+            <a href="{{ url_for('index') }}" class="freeBtn">TRY FOR FREE</a>
+        </div>
+        <div class="premiumContainer">
+            <p class="premium">Premium Access</p>
+            <p class="premiumPayment">₱99/month</p>
+            <p class="premium-features"><span>✅</span> Ad-Free Interface</p>
+            <p class="premium-features"><span>✅</span> Unlimited Calculations</p>
+            <p class="premium-features"><span>✅</span> No Limits / Full Access</p>
+            <p class="premium-features"><span>✅</span> Unlimited History / Saved Calculations</p>
+            <p class="premium-features"><span>✅</span> ALL Topics Covered</p>
+            <p class="premium-features"><span>✅</span> Offline Mode</p>
+            <p class="premium-features"><span>✅</span> Early Access to New Features</p>
+            <p class="free-features"><span>✅</span> Watermark-Free Export</p>
+            <a href="{{ url_for('buyPremium') }}" class="premiumBtn">BUY NOW</a>
+
+        </div>
+    </div>
+</body>
+
+</html>

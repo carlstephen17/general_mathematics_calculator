@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Place</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='marketplace.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="{{ url_for('dark_side') }}" class="nav-link {% if current_page == 'home' %}active{% endif %}">Home</a>
+        <a href="{{ url_for('marketplace') }}" class="nav-link {% if current_page == 'marketplace' %}active{% endif %}">Marketplace</a>
+
+        <select id="selected" onchange="selection()">
+            <option value="all">All Items</option>
+            <option value="pistol">Pistol</option>
+            <option value="revolver">Revolver</option>
+            <option value="smg">SMG</option>
+            <option value="pdw">PDW</option>
+            <option value="rifle_basic">Rifle</option>
+            <option value="carbine">Carbine</option>
+            <option value="marksman_tool">Marksman</option>
+            <option value="long_range_unit">Long Range</option>
+            <option value="launcher_unit">Launcher</option>
+            <option value="special_equipment">Special Equipment</option>
+            <option value="blade_tools">Melee — Blade</option>
+            <option value="blunt_tools">Melee — Blunt</option>
+            <option value="collectible">Collectibles</option>
+            <option value="legendary_item">Legendary Items</option>
+        </select>
+
+        <a href="#" class="nav-link">Account</a>
+    </nav>
+
+    <h1 class="hot">Hot Picks</h1>
+    <div class="featured-card" id="featured"></div>
+
+</body>
+
+<script>
+    const items = [
+    { id: 1, name: "Smith & Wesson Model 29 Revolver", price: 1500, type: "pistol", image: "{{ url_for('static', filename='Smith_Wesson_Model_29_Revolver.jpg') }}", url: "{{ url_for('purchaseItem') }}" },
+    { id: 2, name: "FN M249 SAW", price: 3500, type: "smg", image: "{{ url_for('static', filename='FN_M249_SAW_Squad_Automatic_Weapon.jpg') }}", url: "{{ url_for('purchaseItem') }}" },
+    { id: 3, name: "Heckler & Koch UMP", price: 8500, type: "smg", image: "{{ url_for('static', filename='Heckler_Koch_UMP_Universal_Machine_Pistol.jpeg') }}", url: "{{ url_for('purchaseItem') }}" },
+    { id: 4, name: "Barrett M82", price: 15000, type: "long_range_unit", image: "{{ url_for('static', filename='Barrett_M82.jpg') }}", url: "{{ url_for('purchaseItem') }}" },
+    { id: 5, name: "RPG-7", price: 4000, type: "launcher_unit", image: "{{ url_for('static', filename='RPG-7.jpg') }}", url: "{{ url_for('purchaseItem') }}" }
+];
+
+
+    const container = document.getElementById("featured");
+
+    function renderItems(select = "all") {
+        container.innerHTML = "";
+
+        items.forEach(item => {
+            if (select !== "all" && item.type !== select) return;
+
+            container.innerHTML += `
+                <div class="product-card" data-type="${item.type}">
+                    <a href="{{ url_for('purchaseItem') }}?id=${item.id}">
+                        <img src="${item.image}" alt="${item.name}">
+                    </a>
+                    <h3>${item.name}</h3>
+                    <span>$${item.price.toLocaleString()}</span>
+                </div>
+            `;
+        });
+    }
+
+    renderItems();
+
+    function selection() {
+        const select = document.getElementById("selected").value;
+        renderItems(select);
+    }
+</script>
+
+</html>
